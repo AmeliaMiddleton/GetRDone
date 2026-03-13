@@ -1,0 +1,19 @@
+<div class="log-page">
+  <app-calendar
+    [selectedDate]="selectedDate()"
+    [datesWithEntries]="taskLogService.datesWithEntries()"
+    (daySelected)="onDaySelected($event)"
+  />
+
+  <div class="log-section">
+    <div class="log-section-header">
+      <h2>{{ selectedDateLabel }}</h2>
+      <button class="btn-primary" (click)="openAddTaskDialog()">+ Add Task Done</button>
+    </div>
+
+    <app-task-log-list
+      [entries]="entriesForSelectedDate()"
+      [taskTypes]="taskTypeService.taskTypes()"
+    />
+  </div>
+</div>

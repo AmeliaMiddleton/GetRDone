@@ -1,0 +1,14 @@
+.log-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.log-section-header h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}

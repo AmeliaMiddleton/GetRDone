@@ -1,0 +1,42 @@
+.app-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 56px;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow);
+}
+
+.nav-brand {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: -0.5px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 8px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--color-text-muted);
+  padding: 6px 14px;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.15s, background 0.15s;
+}
+
+.nav-links a:hover {
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+.nav-links a.active {
+  color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 12%, transparent);
+}

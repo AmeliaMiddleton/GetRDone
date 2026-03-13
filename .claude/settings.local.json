@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/ameli/source/repos/**)",
+      "Bash(ng new GetRDone --directory GetRDone --routing true --style css --standalone true --skip-git true)",
+      "Bash(ng add @angular/cdk --skip-confirmation)"
+    ]
+  }
+}

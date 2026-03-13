@@ -1,0 +1,43 @@
+<div class="reports-page">
+  <h1>Reports</h1>
+
+  <div class="date-range">
+    <div class="date-field">
+      <label for="fromDate">From</label>
+      <input
+        id="fromDate"
+        type="date"
+        [ngModel]="fromDate()"
+        (ngModelChange)="onFromChange($event)"
+      />
+    </div>
+    <span class="date-sep">to</span>
+    <div class="date-field">
+      <label for="toDate">To</label>
+      <input
+        id="toDate"
+        type="date"
+        [ngModel]="toDate()"
+        (ngModelChange)="onToChange($event)"
+      />
+    </div>
+  </div>
+
+  <div class="charts">
+    <div class="chart-card">
+      <canvas baseChart
+        [data]="barChartData()"
+        [options]="barChartOptions"
+        type="bar">
+      </canvas>
+    </div>
+
+    <div class="chart-card">
+      <canvas baseChart
+        [data]="lineChartData()"
+        [options]="lineChartOptions"
+        type="line">
+      </canvas>
+    </div>
+  </div>
+</div>

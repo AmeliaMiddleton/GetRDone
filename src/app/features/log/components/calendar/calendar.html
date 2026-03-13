@@ -1,0 +1,25 @@
+<div class="calendar">
+  <div class="calendar-header">
+    <button class="month-nav" (click)="prevMonth()" aria-label="Previous month">&#8249;</button>
+    <span class="month-label">{{ monthLabel() }}</span>
+    <button class="month-nav" (click)="nextMonth()" aria-label="Next month">&#8250;</button>
+  </div>
+
+  <div class="calendar-grid">
+    @for (day of WEEKDAYS; track day) {
+      <div class="weekday-header">{{ day }}</div>
+    }
+    @for (day of calendarDays(); track day.date.toISOString()) {
+      <button
+        class="day-cell"
+        [class.selected]="isSelected(day)"
+        [class.has-entries]="hasEntries(day)"
+        [class.other-month]="!day.inCurrentMonth"
+        (click)="selectDay(day)"
+        [attr.aria-label]="day.date.toDateString()"
+      >
+        {{ day.date.getDate() }}
+      </button>
+    }
+  </div>
+</div>
