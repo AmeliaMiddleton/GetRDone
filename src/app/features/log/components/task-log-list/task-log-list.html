@@ -8,7 +8,11 @@
         <span class="entry-type" [style.color]="resolveType(entry.taskTypeId).color">
           {{ resolveType(entry.taskTypeId).name }}
         </span>
-        <span class="entry-duration">{{ formatIncrements(entry.increments) }}</span>
+        <div class="entry-right">
+          <span class="entry-duration">{{ formatIncrements(entry.increments) }}</span>
+          <button class="icon-btn" (click)="editEntry.emit(entry)" title="Edit" aria-label="Edit">&#9998;</button>
+          <button class="icon-btn icon-btn--danger" (click)="deleteEntry.emit(entry.id)" title="Delete" aria-label="Delete">&#x1F5D1;</button>
+        </div>
       </div>
       @if (entry.summary) {
         <p class="entry-summary">{{ entry.summary }}</p>

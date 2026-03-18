@@ -13,6 +13,10 @@ export const routes: Routes = [
     path: 'reports',
     loadComponent: () => import('./features/reports/reports').then(m => m.ReportsComponent)
   },
+  {
+    path: 'help',
+    loadComponent: () => import('./features/help/help').then(m => m.HelpComponent)
+  },
   { path: '', redirectTo: 'log', pathMatch: 'full' },
   { path: '**', redirectTo: 'log' }
 ];
