@@ -108,6 +108,16 @@
   margin: 0;
 }
 
+.select-error {
+  border-color: #ef4444 !important;
+  outline: 2px solid rgba(239,68,68,0.2);
+}
+
+.field-error {
+  font-size: 0.8rem;
+  color: #ef4444;
+}
+
 .dialog-actions {
   display: flex;
   justify-content: flex-end;

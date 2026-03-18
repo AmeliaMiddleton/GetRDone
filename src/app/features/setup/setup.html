@@ -33,9 +33,12 @@
         <div class="form-field form-field--color">
           <label for="color">Color</label>
           <input id="color" type="color" formControlName="color" />
+          @if (colorAlreadyUsed) {
+            <span class="field-error">Color already in use.</span>
+          }
         </div>
       </div>
-      <button type="submit" class="btn-primary" [disabled]="form.invalid">
+      <button type="submit" class="btn-primary" [disabled]="form.invalid || colorAlreadyUsed">
         Add Task Type
       </button>
     </form>

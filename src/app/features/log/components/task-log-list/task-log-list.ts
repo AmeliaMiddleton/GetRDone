@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { TaskLogEntry } from '../../../../core/models/task-log-entry.model';
 import { TaskType } from '../../../../core/models/task-type.model';
 
@@ -10,6 +10,8 @@ import { TaskType } from '../../../../core/models/task-type.model';
 export class TaskLogListComponent {
   @Input() entries: TaskLogEntry[] = [];
   @Input() taskTypes: TaskType[] = [];
+  @Output() editEntry = new EventEmitter<TaskLogEntry>();
+  @Output() deleteEntry = new EventEmitter<string>();
 
   resolveType(taskTypeId: string): TaskType {
     return this.taskTypes.find(t => t.id === taskTypeId) ?? { id: '', name: 'Unknown Task', color: '#9ca3af' };

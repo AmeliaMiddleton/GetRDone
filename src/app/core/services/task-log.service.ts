@@ -43,6 +43,11 @@ export class TaskLogService {
     this.persist();
   }
 
+  updateEntry(updated: TaskLogEntry): void {
+    this._entries.update(entries => entries.map(e => e.id === updated.id ? updated : e));
+    this.persist();
+  }
+
   deleteEntry(id: string): void {
     this._entries.update(entries => entries.filter(e => e.id !== id));
     this.persist();

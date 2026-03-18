@@ -1,6 +1,6 @@
 <div class="dialog-container">
   <div class="dialog-header">
-    <h2>Log Task</h2>
+    <h2>{{ isEditing ? 'Edit Task' : 'Log Task' }}</h2>
     <button class="close-btn" (click)="cancel()" aria-label="Close">&#x2715;</button>
   </div>
 
@@ -12,11 +12,19 @@
       @if (data.taskTypes.length === 0) {
         <p class="field-warning">No task types yet. Go to Setup to create one.</p>
       } @else {
-        <select id="taskTypeId" formControlName="taskTypeId">
+        <select
+          id="taskTypeId"
+          formControlName="taskTypeId"
+          [class.select-error]="taskTypeInvalid"
+        >
+          <option value="" disabled>-- Select a task type --</option>
           @for (type of data.taskTypes; track type.id) {
             <option [value]="type.id">{{ type.name }}</option>
           }
         </select>
+        @if (taskTypeInvalid) {
+          <span class="field-error">Please select a task type.</span>
+        }
       }
     </div>
 
@@ -54,9 +62,9 @@
       <button
         type="submit"
         class="btn-primary"
-        [disabled]="form.invalid || data.taskTypes.length === 0"
+        [disabled]="data.taskTypes.length === 0"
       >
-        Save
+        {{ isEditing ? 'Update' : 'Save' }}
       </button>
     </div>
   </form>
